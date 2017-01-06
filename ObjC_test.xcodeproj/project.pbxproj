@@ -13,6 +13,10 @@
 		28E0493B1E1AF90D003B548D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E049391E1AF90D003B548D /* Main.storyboard */; };
 		28E0493D1E1AF90D003B548D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E0493C1E1AF90D003B548D /* Assets.xcassets */; };
 		28E049401E1AF90D003B548D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E0493E1E1AF90D003B548D /* LaunchScreen.storyboard */; };
+		28E049491E1AF934003B548D /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E049481E1AF934003B548D /* HTTPService.m */; };
+		28E0494E1E1BCB27003B548D /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E0494D1E1BCB27003B548D /* VideoCell.m */; };
+		28E049521E1BCFE6003B548D /* VideoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E049511E1BCFE6003B548D /* VideoData.m */; };
+		28E049561E1BF7F5003B548D /* ShowVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E049551E1BF7F5003B548D /* ShowVideoVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,15 @@
 		28E0493C1E1AF90D003B548D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28E0493F1E1AF90D003B548D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28E049411E1AF90D003B548D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E049471E1AF934003B548D /* HTTPService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPService.h; sourceTree = "<group>"; };
+		28E049481E1AF934003B548D /* HTTPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPService.m; sourceTree = "<group>"; };
+		28E0494C1E1BCB27003B548D /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
+		28E0494D1E1BCB27003B548D /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
+		28E049501E1BCFE6003B548D /* VideoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoData.h; sourceTree = "<group>"; };
+		28E049511E1BCFE6003B548D /* VideoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoData.m; sourceTree = "<group>"; };
+		28E049541E1BF7F4003B548D /* ShowVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowVideoVC.h; sourceTree = "<group>"; };
+		28E049551E1BF7F5003B548D /* ShowVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowVideoVC.m; sourceTree = "<group>"; };
+		28E049571E1BFA82003B548D /* VideoCellDeligate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCellDeligate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,15 +71,18 @@
 		28E0492F1E1AF90D003B548D /* ObjC_test */ = {
 			isa = PBXGroup;
 			children = (
+				28E0494F1E1BCFCD003B548D /* Model */,
+				28E0494B1E1BCB0A003B548D /* View */,
+				28E049531E1BF7CD003B548D /* Controller */,
+				28E0494A1E1AF946003B548D /* Services */,
 				28E049331E1AF90D003B548D /* AppDelegate.h */,
 				28E049341E1AF90D003B548D /* AppDelegate.m */,
-				28E049361E1AF90D003B548D /* ViewController.h */,
-				28E049371E1AF90D003B548D /* ViewController.m */,
 				28E049391E1AF90D003B548D /* Main.storyboard */,
 				28E0493C1E1AF90D003B548D /* Assets.xcassets */,
 				28E0493E1E1AF90D003B548D /* LaunchScreen.storyboard */,
 				28E049411E1AF90D003B548D /* Info.plist */,
 				28E049301E1AF90D003B548D /* Supporting Files */,
+				28E049571E1BFA82003B548D /* VideoCellDeligate.h */,
 			);
 			path = ObjC_test;
 			sourceTree = "<group>";
@@ -77,6 +93,44 @@
 				28E049311E1AF90D003B548D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28E0494A1E1AF946003B548D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				28E049471E1AF934003B548D /* HTTPService.h */,
+				28E049481E1AF934003B548D /* HTTPService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		28E0494B1E1BCB0A003B548D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28E0494C1E1BCB27003B548D /* VideoCell.h */,
+				28E0494D1E1BCB27003B548D /* VideoCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		28E0494F1E1BCFCD003B548D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				28E049501E1BCFE6003B548D /* VideoData.h */,
+				28E049511E1BCFE6003B548D /* VideoData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		28E049531E1BF7CD003B548D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28E049361E1AF90D003B548D /* ViewController.h */,
+				28E049371E1AF90D003B548D /* ViewController.m */,
+				28E049541E1BF7F4003B548D /* ShowVideoVC.h */,
+				28E049551E1BF7F5003B548D /* ShowVideoVC.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E049381E1AF90D003B548D /* ViewController.m in Sources */,
+				28E049521E1BCFE6003B548D /* VideoData.m in Sources */,
+				28E0494E1E1BCB27003B548D /* VideoCell.m in Sources */,
+				28E049491E1AF934003B548D /* HTTPService.m in Sources */,
 				28E049351E1AF90D003B548D /* AppDelegate.m in Sources */,
 				28E049321E1AF90D003B548D /* main.m in Sources */,
+				28E049561E1BF7F5003B548D /* ShowVideoVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +368,7 @@
 				28E049461E1AF90D003B548D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
