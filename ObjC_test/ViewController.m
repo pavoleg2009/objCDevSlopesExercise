@@ -29,6 +29,11 @@
     
     self.videoList = [[NSArray alloc] init];
     
+    [self readTutorials];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) readTutorials {
     [[HTTPService instance] getTutorials:^(NSArray * _Nullable dataArray, NSString * _Nullable errorMessage) {
         if (dataArray) {
             //NSLog(@"Array: %@", dataArray.debugDescription);
@@ -37,6 +42,7 @@
             
             for (NSDictionary *d in dataArray) {
                 VideoData *vd = [[VideoData alloc]init];
+                vd.videoId = [d objectForKey:@"_id"];
                 vd.videoTitle = [d objectForKey:@"title"];
                 vd.videoDescription = [d objectForKey:@"description"];
                 vd.videoIframe = [d objectForKey:@"iframe"];
@@ -54,8 +60,7 @@
             NSLog(@"== UNKNOWN ERROR!!!");
         }
     }];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+};
 
 - (void) updateTableView {
     dispatch_async(dispatch_get_main_queue(), ^{

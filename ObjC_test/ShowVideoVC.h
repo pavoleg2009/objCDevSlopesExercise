@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class VideoData;
 
-@interface ShowVideoVC : UIViewController <UIWebViewDelegate>
+@interface ShowVideoVC : UIViewController <UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) VideoData *videoData;
 

@@ -8,7 +8,8 @@
 
 #import "HTTPService.h"
 #define URL_BASE "http://localhost:6069"
-#define URL_TUTORIALS "/tutorials"
+#define URL_TUTORIALS "/tutorials/"
+#define URL_COMMENTS  "/comments"
 
 @implementation HTTPService
 
@@ -25,6 +26,29 @@
 
 - (void) getTutorials:(nullable onComplete)completionHandler {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%s", URL_BASE, URL_TUTORIALS]];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        // completion block
+        
+        if (data) {
+            NSError *err; // error for parsing json
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+            if (!err) {
+                completionHandler(json, nil);
+            } else {
+                completionHandler(nil, [NSString stringWithFormat:@"== Error parsing JSON: %@", err.debugDescription]);
+            }
+            
+        } else {
+            NSLog(@"== Error retriving JSON: %@", error.debugDescription);
+        }
+    }] resume];
+}
+
+- (void) getCommentsForTutorialWith:(NSString *)videoId :(nullable onComplete)completionHandler {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%s%@%s", URL_BASE, URL_TUTORIALS, videoId, URL_COMMENTS]];
     
     NSURLSession *session = [NSURLSession sharedSession];
     

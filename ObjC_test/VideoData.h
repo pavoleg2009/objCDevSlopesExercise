@@ -10,6 +10,7 @@
 
 @interface VideoData : NSObject
 
+@property (nonatomic, strong) NSString *videoId;
 @property (nonatomic, strong) NSString *videoTitle;
 @property (nonatomic, strong) NSString *videoDescription;
 @property (nonatomic, strong) NSString *videoIframe;
