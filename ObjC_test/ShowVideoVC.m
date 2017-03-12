@@ -64,8 +64,8 @@
             NSMutableArray *arr = [[NSMutableArray alloc]init];
             
             for (NSDictionary *d in dataArray) {
-                NSLog(@"== Parsing JSON with comments");
-                NSLog(@"%@", dataArray);
+//                NSLog(@"== Parsing JSON with comments");
+//                NSLog(@"%@", dataArray);
                 CommentData *cd = [[CommentData alloc]init];
                 cd.commentId = [d objectForKey:@"_id"];
                 cd.commentContent = [d objectForKey:@"content"];
@@ -155,6 +155,10 @@
 }
 
 - (void)finishCommentCreating {
+    
+    self.commentTextField.text = @"";
+    [self readComments];
+    
     
 }
 
